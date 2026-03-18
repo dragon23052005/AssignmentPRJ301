@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>School Bus Management System</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Auth Filter -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/parent/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/monitor/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/driver/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Login/Logout Servlets -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.auth.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlet.auth.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>servlet.auth.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <!-- Admin Servlets -->
+    <servlet>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <servlet-class>servlet.admin.AdminDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <url-pattern>/admin/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserManagementServlet</servlet-name>
+        <servlet-class>servlet.admin.UserManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserManagementServlet</servlet-name>
+        <url-pattern>/admin/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RouteManagementServlet</servlet-name>
+        <servlet-class>servlet.admin.RouteManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RouteManagementServlet</servlet-name>
+        <url-pattern>/admin/routes</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StopManagementServlet</servlet-name>
+        <servlet-class>servlet.admin.StopManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StopManagementServlet</servlet-name>
+        <url-pattern>/admin/stops</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VehicleManagementServlet</servlet-name>
+        <servlet-class>servlet.admin.VehicleManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VehicleManagementServlet</servlet-name>
+        <url-pattern>/admin/vehicles</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentManagementServlet</servlet-name>
+        <servlet-class>servlet.admin.StudentManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentManagementServlet</servlet-name>
+        <url-pattern>/admin/students</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TripAdminServlet</servlet-name>
+        <servlet-class>servlet.admin.TripAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TripAdminServlet</servlet-name>
+        <url-pattern>/admin/trips</url-pattern>
+    </servlet-mapping>
+
+    <!-- Parent Servlets -->
+    <servlet>
+        <servlet-name>ParentDashboardServlet</servlet-name>
+        <servlet-class>servlet.parent.ParentDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParentDashboardServlet</servlet-name>
+        <url-pattern>/parent/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterBusServlet</servlet-name>
+        <servlet-class>servlet.parent.RegisterBusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterBusServlet</servlet-name>
+        <url-pattern>/parent/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AbsenceNotifyServlet</servlet-name>
+        <servlet-class>servlet.parent.AbsenceNotifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AbsenceNotifyServlet</servlet-name>
+        <url-pattern>/parent/absence</url-pattern>
+    </servlet-mapping>
+
+    <!-- Monitor Servlets -->
+    <servlet>
+        <servlet-name>MonitorDashboardServlet</servlet-name>
+        <servlet-class>servlet.monitor.MonitorDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MonitorDashboardServlet</servlet-name>
+        <url-pattern>/monitor/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AbsenceManagementServlet</servlet-name>
+        <servlet-class>servlet.monitor.AbsenceManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AbsenceManagementServlet</servlet-name>
+        <url-pattern>/monitor/absence</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TripManagementServlet</servlet-name>
+        <servlet-class>servlet.monitor.TripManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TripManagementServlet</servlet-name>
+        <url-pattern>/monitor/trip</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <servlet-class>servlet.monitor.AttendanceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <url-pattern>/monitor/attendance</url-pattern>
+    </servlet-mapping>
+
+    <!-- Driver Servlets -->
+    <servlet>
+        <servlet-name>DriverDashboardServlet</servlet-name>
+        <servlet-class>servlet.driver.DriverDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DriverDashboardServlet</servlet-name>
+        <url-pattern>/driver/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VehicleReportServlet</servlet-name>
+        <servlet-class>servlet.driver.VehicleReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VehicleReportServlet</servlet-name>
+        <url-pattern>/driver/report</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session timeout: 30 minutes -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+</web-app>
