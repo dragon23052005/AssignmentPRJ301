@@ -20,6 +20,8 @@ import java.io.IOException;
  * Luồng hoạt động:
  *   Request → AuthFilter → Servlet → JSP View
  */
+// Hùng mạnh 799 ăn cứt
+// Hùng mạnh 799
 public class AuthFilter implements Filter {
 
     // Các prefix đường dẫn tương ứng với từng role
